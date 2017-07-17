@@ -8,7 +8,7 @@ USB HID keyboard using STM32F103
 
 #include <stm32f10x.h>
 
-#include "mat/serialq.h"
+//#include "mat/serialq.h"
 
 #include <string.h>
 #include <ctype.h>
@@ -16,7 +16,7 @@ USB HID keyboard using STM32F103
 //#define DBG_UART 1
 
 #include "usb_lib.h"
-#include "mat/usb-kbd/usb_endp.h"
+#include "usb-kbd/usb_endp.h"
 
 void usb_hwinit(void);
 

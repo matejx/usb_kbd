@@ -40,14 +40,14 @@ $(LIBDIR)\stm32usbfs\src\usb_regs.o \
 $(LIBDIR)\stm32usbfs\src\usb_sil.o
 
 USBKBD_SOURCES = \
-$(LIBDIR)\mat\usb-kbd\usb_desc.o \
-$(LIBDIR)\mat\usb-kbd\usb_prop.o \
-$(LIBDIR)\mat\usb-kbd\usb_endp.o \
-$(LIBDIR)\mat\usb-kbd\usb_hwi.o
+.\usb-kbd\usb_desc.o \
+.\usb-kbd\usb_prop.o \
+.\usb-kbd\usb_endp.o \
+.\usb-kbd\usb_hwi.o
 
 OBJECTS+=$(CMSIS_SOURCES)
 OBJECTS+=$(STM_SOURCES)
-OBJECTS+=$(MAT_SOURCES)
+#OBJECTS+=$(MAT_SOURCES)
 OBJECTS+=$(USBFS_SOURCES)
 OBJECTS+=$(USBKBD_SOURCES)
 
@@ -62,7 +62,7 @@ GCFLAGS = -g$(DEBUG)
 GCFLAGS += $(CDEFS)
 GCFLAGS += -O$(OPTIMIZATION)
 GCFLAGS += -Wall -std=gnu99 -fno-common -mcpu=cortex-m3 -mthumb
-GCFLAGS += -I$(LIBDIR)\stm32f10x\inc -I$(LIBDIR)\cmsis -I$(LIBDIR) -I$(LIBDIR)\stm32usbfs\inc -I$(LIBDIR)\mat\usb-cdc
+GCFLAGS += -I$(LIBDIR)\stm32f10x\inc -I$(LIBDIR)\cmsis -I$(LIBDIR) -I$(LIBDIR)\stm32usbfs\inc -I.\usb-kbd
 #GCFLAGS += -Wcast-align -Wcast-qual -Wimplicit -Wpointer-arith -Wswitch
 #GCFLAGS += -Wredundant-decls -Wreturn-type -Wshadow -Wunused
 LDFLAGS = -mcpu=cortex-m3 -mthumb -O$(OPTIMIZATION) -Wl,-Map=$(PROJECT).map -T$(LSCRIPT)
