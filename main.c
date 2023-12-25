@@ -2,7 +2,7 @@
 USB HID keyboard using STM32F103
 
 @file		main.c
-@author		Matej Kogovsek (matej@hamradio.si)
+@author		Matej Kogovsek
 @copyright	GPL v2
 */
 
@@ -126,7 +126,7 @@ int main(void)
 
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA, ENABLE);
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOB, ENABLE);
-    RCC_APB2PeriphResetCmd(RCC_APB2Periph_AFIO, ENABLE);
+  RCC_APB2PeriphClockCmd(RCC_APB2Periph_AFIO, ENABLE);
 	GPIO_PinRemapConfig(GPIO_Remap_SWJ_JTAGDisable, ENABLE); // frees PA15, PB3, PB4
 
 	for( i = 0; i < NKEYS; ++i ) { // configure key pins as input with pull up
